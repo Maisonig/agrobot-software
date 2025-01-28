@@ -1,0 +1,923 @@
+<?xml version="1.0" ?>
+    <sdf version="1.10">
+        <world name="agro_world">
+            <physics name="1ms" type="ignored">
+                <max_step_size>0.001</max_step_size>
+                <real_time_factor>1.0</real_time_factor>
+            </physics>
+            <plugin
+                filename="gz-sim-physics-system"
+                name="gz::sim::systems::Physics">
+            </plugin>
+            <plugin
+                filename="gz-sim-user-commands-system"
+                name="gz::sim::systems::UserCommands">
+            </plugin>
+            <plugin
+                filename="gz-sim-scene-broadcaster-system"
+                name="gz::sim::systems::SceneBroadcaster">
+            </plugin>
+
+            <light type="directional" name="sun">
+                <cast_shadows>true</cast_shadows>
+                <pose>0 0 10 0 0 0</pose>
+                <diffuse>0.8 0.8 0.8 1</diffuse>
+                <specular>0.2 0.2 0.2 1</specular>
+                <attenuation>
+                    <range>1000</range>
+                    <constant>0.9</constant>
+                    <linear>0.01</linear>
+                    <quadratic>0.001</quadratic>
+                </attenuation>
+                <direction>-0.5 0.1 -0.9</direction>
+            </light>
+
+            <model name="ground_plane">
+                <static>true</static>
+                <link name="link">
+                    <collision name="collision">
+                        <geometry>
+                            <plane>
+                            <normal>0 0 1</normal>
+                            </plane>
+                        </geometry>
+                    </collision>
+                    <visual name="visual">
+                        <geometry>
+                            <plane>
+                            <normal>0 0 1</normal>
+                            <size>100 100</size>
+                            </plane>
+                        </geometry>
+                    <material>
+                        <ambient>0.388 0.227 0.204 1</ambient>
+                        <diffuse>0.388 0.227 0.204 1</diffuse>
+                        <specular>0.388 0.227 0.204 1</specular>
+                    </material>
+                    </visual>
+                </link>
+            </model>
+
+            <model name="box1">
+                <static>true</static>
+                <pose relative_to='world'>8 8 1.5 0 0 0</pose>
+                <link name="link">
+                    <collision name="collision">
+                        <geometry>
+                            <box>
+                                <size>3 3 3</size>
+                            </box>
+                        </geometry>
+                    </collision>
+                    <visual name="visual">
+                        <geometry>
+                            <box>
+                                <size>3 3 3</size>
+                            </box>
+                        </geometry>
+                    <material>
+                        <ambient>0.1 0.8 0.8 1</ambient>
+                        <diffuse>0.1 0.8 0.8 1</diffuse>
+                        <specular>0.1 0.8 0.8 1</specular>
+                    </material>
+                    </visual>
+                </link>
+            </model>
+
+            <model name="box2">
+                <static>true</static>
+                <pose relative_to='world'>-9 -12 1.5 0 0 0</pose>
+                <link name="link">
+                    <collision name="collision">
+                        <geometry>
+                            <box>
+                                <size>2 2 3</size>
+                            </box>
+                        </geometry>
+                    </collision>
+                    <visual name="visual">
+                        <geometry>
+                            <box>
+                                <size>2 2 3</size>
+                            </box>
+                        </geometry>
+                    <material>
+                        <ambient>0.1 0.8 0.8 1</ambient>
+                        <diffuse>0.1 0.8 0.8 1</diffuse>
+                        <specular>0.1 0.8 0.8 1</specular>
+                    </material>
+                    </visual>
+                </link>
+            </model>
+
+            <model name="box3">
+                <static>true</static>
+                <pose relative_to='world'>-9 10 1 0 0 0</pose>
+                <link name="link">
+                    <collision name="collision">
+                        <geometry>
+                            <box>
+                                <size>1 2 2</size>
+                            </box>
+                        </geometry>
+                    </collision>
+                    <visual name="visual">
+                        <geometry>
+                            <box>
+                                <size>1 2 3</size>
+                            </box>
+                        </geometry>
+                    <material>
+                        <ambient>0.1 0.8 0.8 1</ambient>
+                        <diffuse>0.1 0.8 0.8 1</diffuse>
+                        <specular>0.1 0.8 0.8 1</specular>
+                    </material>
+                    </visual>
+                </link>
+            </model>
+
+            <model name='corn_field'>
+                <static>true</static>
+                <pose relative_to='world'>-1 -1.7 0 0 0 0</pose>
+                <link name='link'>
+                    <visual name='visual'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/corn_field_1.STL</uri>
+                            </mesh>
+                        </geometry>
+                        <material>
+                            <ambient>0.0 1.0 0.0 1</ambient>
+                            <diffuse>0.0 1.0 0.0 1</diffuse>
+                            <specular>0.0 1.0 0.0 1</specular>
+                        </material>
+                    </visual>
+                </link>
+            </model>
+
+
+            <!-- ////////////////////////////-->
+            <!-- ////////////////////////////-->
+            <!-- BASE LINK -->
+            <!-- ////////////////////////////-->
+            <!-- ////////////////////////////-->
+            <model name='agro_bot' canonical_link='base_link'>
+                <pose relative_to='world'>0 0 0.57 0 0 0</pose>
+                <link name='base_link'>
+                    <pose relative_to='__model__'>0 0 0 0 0 0</pose>
+                    <inertial>
+                        <mass>1</mass>
+                        <inertia>
+                            <ixx>0.095329</ixx>
+                            <ixy>0</ixy>
+                            <ixz>0</ixz>
+                            <iyy>0.381317</iyy>
+                            <iyz>0</iyz>
+                            <izz>0.476646</izz>
+                        </inertia>
+                    </inertial>
+                    <visual name='visual'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/base_link.STL</uri>
+                            </mesh>
+                        </geometry>
+                        <material>
+                            <ambient>0.0 0.0 1.0 1</ambient>
+                            <diffuse>0.0 0.0 1.0 1</diffuse>
+                            <specular>0.0 0.0 1.0 1</specular>
+                        </material>
+                    </visual>
+                    <sensor name="imu_sensor" type="imu">
+                        <always_on>1</always_on>
+                        <update_rate>1</update_rate>
+                        <visualize>true</visualize>
+                        <topic>imu</topic>
+                    </sensor>
+                    <collision name='collision'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/base_link.STL</uri>
+                            </mesh>
+                        </geometry>
+                    </collision>
+                </link>
+
+
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+                <!-- BASE FOOTPRINT -->
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+                <link name='base_footprint'>
+                    <pose relative_to='base_link'>0 0 -0.57 0 0 0</pose>
+                </link>
+
+               <joint name='base_footprint_joint' type='fixed'>
+                   <pose relative_to='base_link'>0 0 -0.57 0 0 0</pose>
+                    <parent>base_link</parent>
+                    <child>base_footprint</child>
+               </joint>
+
+
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+                <!-- FRONT LEFT STEERING -->
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+                <link name='front_left_steering'>
+                    <pose relative_to='base_link'>-1.136 -0.9 -0.040197 1.5708 0 1.5791</pose>
+                    <inertial>
+                        <mass>0.1</mass>
+                        <inertia>
+                            <ixx>0.25329</ixx>
+                            <ixy>0</ixy>
+                            <ixz>0</ixz>
+                            <iyy>0.071317</iyy>
+                            <iyz>0</iyz>
+                            <izz>0.26646</izz>
+                        </inertia>
+                    </inertial>
+                    <visual name='visual'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/front_left_steering.STL</uri>
+                            </mesh>
+                        </geometry>
+                        <material>
+                            <ambient>0.8 0.8 1.0 1</ambient>
+                            <diffuse>0.8 0.8 1.0 1</diffuse>
+                            <specular>0.8 0.8 1.0 1</specular>
+                        </material>
+                    </visual>
+                    <collision name='collision'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/front_left_steering.STL</uri>
+                            </mesh>
+                        </geometry>
+                    </collision>
+                </link>
+
+               <joint name='front_left_steering_joint' type='revolute'>
+                   <pose relative_to='base_link'>-1.136 -0.9 -0.040197 1.5708 0 1.5791</pose>
+                    <parent>base_link</parent>
+                    <child>front_left_steering</child>
+                    <axis>
+                        <xyz expressed_in='__model__'>0 0 1</xyz> <!--can be defined as any frame or even arbitrary frames-->
+                        <dynamics>
+                            <damping>2.0</damping>
+                        </dynamics>
+                    </axis>
+               </joint>
+
+
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+                <!-- FRONT LEFT WHEEL -->
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+               <link name='front_left_wheel'>
+                    <pose relative_to='front_left_steering'>0 -0.315 0 -1.5708 -1.5381 1.5708</pose>
+                    <inertial> <!--inertial properties of the link mass, inertia matix-->
+                        <mass>0.5</mass>
+                        <inertia>
+                            <ixx>0.095329</ixx>
+                            <ixy>0</ixy>
+                            <ixz>0</ixz>
+                            <iyy>0.081317</iyy>
+                            <iyz>0</iyz>
+                            <izz>0.176646</izz>
+                        </inertia>
+                    </inertial>
+                    <visual name='visual'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/front_left_wheel.STL</uri>
+                            </mesh>
+                        </geometry>
+                        <!--let's add color to our link-->
+                        <material>
+                            <ambient>1.0 1.0 1.0 1</ambient>
+                            <diffuse>1.0 1.0 1.0 1</diffuse>
+                            <specular>1.0 1.0 1.0 1</specular>
+                        </material>
+                    </visual>
+                    <collision name='collision'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/front_left_wheel.STL</uri>
+                            </mesh>
+                        </geometry>
+                    </collision>
+               </link>
+
+               <joint name='front_left_wheel_joint' type='revolute'>
+                   <pose relative_to='front_left_steering'>0 -0.315 0 -1.5708 -1.5381 1.5708</pose>
+                    <parent>front_left_steering</parent>
+                    <child>front_left_wheel</child>
+                    <axis>
+                        <xyz expressed_in='__model__'>0 1 0</xyz> <!--can be defined as any frame or even arbitrary frames-->
+                        <limit>
+                            <lower>-1.79769e+308</lower>    <!--negative infinity-->
+                            <upper>1.79769e+308</upper>     <!--positive infinity-->
+                        </limit>
+                    </axis>
+               </joint>
+
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+                <!-- FRONT RIGHT STEERING -->
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+                <link name='front_right_steering'>
+                    <pose relative_to='base_link'>-1.1378 0.9 -0.017856 1.5708 0 -1.5575</pose>
+                    <inertial> <!--inertial properties of the link mass, inertia matix-->
+                        <mass>0.1</mass>
+                        <inertia>
+                            <ixx>0.25329</ixx>
+                            <ixy>0</ixy>
+                            <ixz>0</ixz>
+                            <iyy>0.071317</iyy>
+                            <iyz>0</iyz>
+                            <izz>0.26646</izz>
+                        </inertia>
+                    </inertial>
+                    <visual name='visual'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/front_right_steering.STL</uri>
+                            </mesh>
+                        </geometry>
+                        <!--let's add color to our link-->
+                        <material>
+                            <ambient>0.8 0.8 1.0 1</ambient>
+                            <diffuse>0.8 0.8 1.0 1</diffuse>
+                            <specular>0.8 0.8 1.0 1</specular>
+                        </material>
+                    </visual>
+                    <collision name='collision'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/front_right_steering.STL</uri>
+                            </mesh>
+                        </geometry>
+                    </collision>
+                </link>
+
+               <joint name='front_right_steering_joint' type='revolute'>
+                   <pose relative_to='base_link'>-1.1378 0.9 -0.017856 1.5708 0 -1.5575</pose>
+                    <parent>base_link</parent>
+                    <child>front_right_steering</child>
+                    <axis>
+                        <xyz expressed_in='__model__'>0 0 1</xyz> <!--can be defined as any frame or even arbitrary frames-->
+                        <dynamics>
+                            <damping>2.0</damping>
+                        </dynamics>
+                        <limit>
+                            <lower>-1.79769e+308</lower>    <!--negative infinity-->
+                            <upper>1.79769e+308</upper>     <!--positive infinity-->
+                        </limit>
+                    </axis>
+               </joint>
+
+
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+                <!-- FRONT RIGHT WHEEL -->
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+               <link name='front_right_wheel'>
+                    <pose relative_to='front_right_steering'>0 -0.315 0 -1.5708 -1.5389 1.5708</pose>
+                    <inertial> <!--inertial properties of the link mass, inertia matix-->
+                        <mass>0.5</mass>
+                        <inertia>
+                            <ixx>0.095329</ixx>
+                            <ixy>0</ixy>
+                            <ixz>0</ixz>
+                            <iyy>0.081317</iyy>
+                            <iyz>0</iyz>
+                            <izz>0.176646</izz>
+                        </inertia>
+                    </inertial>
+                    <visual name='visual'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/front_right_wheel.STL</uri>
+                            </mesh>
+                        </geometry>
+                        <!--let's add color to our link-->
+                        <material>
+                            <ambient>1.0 1.0 1.0 1</ambient>
+                            <diffuse>1.0 1.0 1.0 1</diffuse>
+                            <specular>1.0 1.0 1.0 1</specular>
+                        </material>
+                    </visual>
+                    <collision name='collision'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/front_right_wheel.STL</uri>
+                            </mesh>
+                        </geometry>
+                    </collision>
+               </link>
+
+               <joint name='front_right_wheel_joint' type='revolute'>
+                   <pose relative_to='front_right_steering'>0 -0.315 0 -1.5708 -1.5389 1.5708</pose>
+                    <parent>front_right_steering</parent>
+                    <child>front_right_wheel</child>
+                    <axis>
+                        <xyz expressed_in='__model__'>0 1 0</xyz> <!--can be defined as any frame or even arbitrary frames-->
+                        <limit>
+                            <lower>-1.79769e+308</lower>    <!--negative infinity-->
+                            <upper>1.79769e+308</upper>     <!--positive infinity-->
+                        </limit>
+                    </axis>
+               </joint>
+
+
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+                <!-- BACK RIGHT STEERING -->
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+                <link name='back_left_steering'>
+                    <pose relative_to='base_link'>1.1377 -0.9 -0.020124 1.5708 0 1.5679</pose>
+                    <inertial> <!--inertial properties of the link mass, inertia matix-->
+                        <mass>0.1</mass>
+                        <inertia>
+                            <ixx>0.25329</ixx>
+                            <ixy>0</ixy>
+                            <ixz>0</ixz>
+                            <iyy>0.071317</iyy>
+                            <iyz>0</iyz>
+                            <izz>0.26646</izz>
+                        </inertia>
+                    </inertial>
+                    <visual name='visual'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/back_left_steering.STL</uri>
+                            </mesh>
+                        </geometry>
+                        <!--let's add color to our link-->
+                        <material>
+                            <ambient>0.8 0.8 1.0 1</ambient>
+                            <diffuse>0.8 0.8 1.0 1</diffuse>
+                            <specular>0.8 0.8 1.0 1</specular>
+                        </material>
+                    </visual>
+                    <collision name='collision'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/back_left_steering.STL</uri>
+                            </mesh>
+                        </geometry>
+                    </collision>
+                </link>
+
+               <joint name='back_left_steering_joint' type='revolute'>
+                   <pose relative_to='base_link'>1.1377 -0.9 -0.020124 1.5708 0 1.5679</pose>
+                    <parent>base_link</parent>
+                    <child>back_left_steering</child>
+                    <axis>
+                        <xyz expressed_in='__model__'>0 0 1</xyz> <!--can be defined as any frame or even arbitrary frames-->
+                        <dynamics>
+                            <damping>2.0</damping>
+                        </dynamics>
+                        <limit>
+                            <lower>-1.79769e+308</lower>    <!--negative infinity-->
+                            <upper>1.79769e+308</upper>     <!--positive infinity-->
+                        </limit>
+                    </axis>
+               </joint>
+
+
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+                <!-- BACK LEFT WHEEL -->
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+               <link name='back_left_wheel'>
+                    <pose relative_to='back_left_steering'>0 -0.315 0 -1.5708 0.93983 1.5708</pose>
+                    <inertial> <!--inertial properties of the link mass, inertia matix-->
+                        <mass>0.5</mass>
+                        <inertia>
+                            <ixx>0.095329</ixx>
+                            <ixy>0</ixy>
+                            <ixz>0</ixz>
+                            <iyy>0.081317</iyy>
+                            <iyz>0</iyz>
+                            <izz>0.176646</izz>
+                        </inertia>
+                    </inertial>
+                    <visual name='visual'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/back_left_wheel.STL</uri>
+                            </mesh>
+                        </geometry>
+                        <!--let's add color to our link-->
+                        <material>
+                            <ambient>1.0 1.0 1.0 1</ambient>
+                            <diffuse>1.0 1.0 1.0 1</diffuse>
+                            <specular>1.0 1.0 1.0 1</specular>
+                        </material>
+                    </visual>
+                    <collision name='collision'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/back_left_wheel.STL</uri>
+                            </mesh>
+                        </geometry>
+                    </collision>
+               </link>
+
+               <joint name='back_left_wheel_joint' type='revolute'>
+                   <pose relative_to='back_left_steering'>0 -0.315 0 -1.5708 0.93983 1.5708</pose>
+                    <parent>back_left_steering</parent>
+                    <child>back_left_wheel</child>
+                    <axis>
+                        <xyz expressed_in='__model__'>0 1 0</xyz> <!--can be defined as any frame or even arbitrary frames-->
+                        <limit>
+                            <lower>-1.79769e+308</lower>    <!--negative infinity-->
+                            <upper>1.79769e+308</upper>     <!--positive infinity-->
+                        </limit>
+                    </axis>
+               </joint>
+
+
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+                <!-- BACK RIGHT STEERING -->
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+               <link name='back_right_steering'>
+                    <pose relative_to='base_link'>1.1377 0.9 -0.020638 1.5708 0 -1.564</pose>
+                    <inertial> <!--inertial properties of the link mass, inertia matix-->
+                        <mass>0.1</mass>
+                        <inertia>
+                            <ixx>0.25329</ixx>
+                            <ixy>0</ixy>
+                            <ixz>0</ixz>
+                            <iyy>0.071317</iyy>
+                            <iyz>0</iyz>
+                            <izz>0.26646</izz>
+                        </inertia>
+                    </inertial>
+                    <visual name='visual'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/back_right_steering.STL</uri>
+                            </mesh>
+                        </geometry>
+                        <!--let's add color to our link-->
+                        <material>
+                            <ambient>0.8 0.8 1.0 1</ambient>
+                            <diffuse>0.8 0.8 1.0 1</diffuse>
+                            <specular>0.8 0.8 1.0 1</specular>
+                        </material>
+                    </visual>
+                    <collision name='collision'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/back_right_steering.STL</uri>
+                            </mesh>
+                        </geometry>
+                    </collision>
+                </link>
+
+               <joint name='back_right_steering_joint' type='revolute'>
+                   <pose relative_to='base_link'>1.1377 0.9 -0.020638 1.5708 0 -1.564</pose>
+                    <parent>base_link</parent>
+                    <child>back_right_steering</child>
+                    <axis>
+                        <xyz expressed_in='__model__'>0 0 1</xyz> <!--can be defined as any frame or even arbitrary frames-->
+                        <dynamics>
+                            <damping>2.0</damping>
+                        </dynamics>
+                        <limit>
+                            <lower>-1.79769e+308</lower>    <!--negative infinity-->
+                            <upper>1.79769e+308</upper>     <!--positive infinity-->
+                        </limit>
+                    </axis>
+               </joint>
+
+
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+                <!-- BACK RIGHT WHEEL -->
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+               <link name='back_right_wheel'>
+                    <pose relative_to='back_right_steering'>0 -0.315 0 1.5708 -1.3641 -1.5708</pose>
+                    <inertial> <!--inertial properties of the link mass, inertia matix-->
+                        <mass>0.5</mass>
+                        <inertia>
+                            <ixx>0.095329</ixx>
+                            <ixy>0</ixy>
+                            <ixz>0</ixz>
+                            <iyy>0.081317</iyy>
+                            <iyz>0</iyz>
+                            <izz>0.176646</izz>
+                        </inertia>
+                    </inertial>
+                    <visual name='visual'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/back_right_wheel.STL</uri>
+                            </mesh>
+                        </geometry>
+                        <!--let's add color to our link-->
+                        <material>
+                            <ambient>1.0 1.0 1.0 1</ambient>
+                            <diffuse>1.0 1.0 1.0 1</diffuse>
+                            <specular>1.0 1.0 1.0 1</specular>
+                        </material>
+                    </visual>
+                    <collision name='collision'>
+                        <geometry>
+                            <mesh>
+                                <scale>1 1 1</scale>
+                                <uri>meshes/back_right_wheel.STL</uri>
+                            </mesh>
+                        </geometry>
+                    </collision>
+               </link>
+
+               <joint name='back_right_wheel_joint' type='revolute'>
+                   <pose relative_to='back_right_steering'>0 -0.315 0 1.5708 -1.3641 -1.5708</pose>
+                    <parent>back_right_steering</parent>
+                    <child>back_right_wheel</child>
+                    <axis>
+                        <xyz expressed_in='__model__'>0 1 0</xyz> <!--can be defined as any frame or even arbitrary frames-->
+                        <limit>
+                            <lower>-1.79769e+308</lower>    <!--negative infinity-->
+                            <upper>1.79769e+308</upper>     <!--positive infinity-->
+                        </limit>
+                    </axis>
+               </joint>
+
+
+               <!-- ////////////////////////////-->
+               <!-- ////////////////////////////-->
+               <!-- RGB-D CAMERA -->
+               <!-- ////////////////////////////-->
+               <!-- ////////////////////////////-->
+               <link name='rgbd'>
+                    <pose relative_to='base_link'>1.4 0.9 0 0 0 0</pose>
+                    <inertial> <!--inertial properties of the link mass, inertia matix-->
+                        <mass>0.1</mass>
+                        <inertia>
+                            <ixx>0.095329</ixx>
+                            <ixy>0</ixy>
+                            <ixz>0</ixz>
+                            <iyy>0.081317</iyy>
+                            <iyz>0</iyz>
+                            <izz>0.176646</izz>
+                        </inertia>
+                    </inertial>
+                   <collision name="collision">
+                      <geometry>
+                        <box>
+                          <size>0.1 0.1 0.1</size>
+                        </box>
+                      </geometry>
+                   </collision>
+                   <visual name="visual">
+                      <geometry>
+                        <box>
+                          <size>0.1 0.1 0.1</size>
+                        </box>
+                      </geometry>
+                   </visual>
+                   <sensor name="depth" type="depth_camera">
+                      <update_rate>10</update_rate>
+                      <topic>image/depth</topic>
+                      <camera>
+                        <horizontal_fov>1.05</horizontal_fov>
+                        <image>
+                          <width>1280</width>
+                          <height>720</height>
+                          <format>R_FLOAT32</format>
+                        </image>
+                        <clip>
+                          <near>0.01</near>
+                          <far>32.0</far>
+                        </clip>
+                      </camera>
+                   </sensor>
+                   <sensor name="rgb" type="camera">
+                      <topic>image/color</topic>
+                      <camera>
+                        <horizontal_fov>1.05</horizontal_fov>
+                        <image>
+                          <width>1280</width>
+                          <height>720</height>
+                        </image>
+                        <clip>
+                          <near>0.1</near>
+                          <far>100</far>
+                        </clip>
+                      </camera>
+                      <always_on>1</always_on>
+                      <update_rate>30</update_rate>
+                      <visualize>true</visualize>
+                   </sensor>
+                   <sensor name='lidar3' type='gpu_lidar'>"
+                        <pose relative_to='rgbd'>0 0 0 0 0 0</pose>
+                        <topic>lidar3</topic>
+                        <update_rate>10</update_rate>
+                        <ray>
+                            <scan>
+                                <horizontal>
+                                    <samples>640</samples>
+                                    <resolution>0.01</resolution>
+                                    <min_angle>-0.33</min_angle>
+                                    <max_angle>0.33</max_angle>
+                                </horizontal>
+                                <vertical>
+                                    <samples>32</samples>
+                                    <resolution>0.01</resolution>
+                                    <min_angle>-0.261791667</min_angle>
+                                    <max_angle>0.261791667</max_angle>
+                                </vertical>
+                            </scan>
+                            <range>
+                                <min>0.5</min>
+                                <max>32.0</max>
+                                <resolution>0.01</resolution>
+                            </range>
+                        </ray>
+                        <always_on>1</always_on>
+                        <visualize>true</visualize>
+                   </sensor>
+               </link>
+
+               <joint name='rgbd_joint' type='fixed'>
+                   <pose relative_to='base_link'>1. 0.9 -0.35 0 0.0 0</pose>
+                    <parent>base_link</parent>
+                    <child>rgbd</child>
+               </joint>
+
+
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+                <!-- WHEEL PLUGINS -->
+                <!-- ////////////////////////////-->
+                <!-- ////////////////////////////-->
+               <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+                   <joint_name>front_left_wheel_joint</joint_name>
+                   <topic>/front_left_wheel</topic>
+                   <initial_velocity>0.0</initial_velocity>
+                   <cmd_max>1</cmd_max>
+                   <cmd_min>-1</cmd_min>
+               </plugin>
+               <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+                   <joint_name>front_right_wheel_joint</joint_name>
+                   <topic>/front_right_wheel</topic>
+                   <initial_velocity>0.0</initial_velocity>
+                   <cmd_max>1</cmd_max>
+                   <cmd_min>-1</cmd_min>
+               </plugin>
+               <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+                   <joint_name>back_left_wheel_joint</joint_name>
+                   <topic>/back_left_wheel</topic>
+                   <initial_velocity>0.0</initial_velocity>
+                   <cmd_max>1</cmd_max>
+                   <cmd_min>-1</cmd_min>
+               </plugin>
+               <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+                   <joint_name>back_right_wheel_joint</joint_name>
+                   <topic>/back_right_wheel</topic>
+                   <initial_velocity>0.0</initial_velocity>
+                   <cmd_max>1</cmd_max>
+                   <cmd_min>-1</cmd_min>
+               </plugin>
+
+               <!-- ////////////////////////////-->
+               <!-- ////////////////////////////-->
+               <!-- STEERING PLUGINS -->
+               <!-- ////////////////////////////-->
+               <!-- ////////////////////////////-->
+               <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+                    <joint_name>front_left_steering_joint</joint_name>
+                    <topic>/front_left_steering</topic>
+                    <p_gain>1</p_gain>
+                    <i_gain>0.1</i_gain>
+                    <d_gain>0.01</d_gain>
+                    <i_max>1</i_max>
+                    <i_min>-1</i_min>
+                    <cmd_max>1</cmd_max>
+                    <cmd_min>-1</cmd_min>
+               </plugin>
+               <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+                    <joint_name>front_right_steering_joint</joint_name>
+                    <topic>/front_right_steering</topic>
+                    <p_gain>1</p_gain>
+                    <i_gain>0.1</i_gain>
+                    <d_gain>0.01</d_gain>
+                    <i_max>1</i_max>
+                    <i_min>-1</i_min>
+                    <cmd_max>1</cmd_max>
+                    <cmd_min>-1</cmd_min>
+               </plugin>
+               <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+                    <joint_name>back_left_steering_joint</joint_name>
+                    <topic>/back_left_steering</topic>
+                    <p_gain>1</p_gain>
+                    <i_gain>0.1</i_gain>
+                    <d_gain>0.01</d_gain>
+                    <i_max>1</i_max>
+                    <i_min>-1</i_min>
+                    <cmd_max>1</cmd_max>
+                    <cmd_min>-1</cmd_min>
+               </plugin>
+               <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+                    <joint_name>back_right_steering_joint</joint_name>
+                    <topic>/back_right_steering</topic>
+                    <p_gain>1</p_gain>
+                    <i_gain>0.1</i_gain>
+                    <d_gain>0.01</d_gain>
+                    <i_max>1</i_max>
+                    <i_min>-1</i_min>
+                    <cmd_max>1</cmd_max>
+                    <cmd_min>-1</cmd_min>
+               </plugin>
+
+
+               <!-- ////////////////////////////-->
+               <!-- ////////////////////////////-->
+               <!-- IMU PLUGIN -->
+               <!-- ////////////////////////////-->
+               <!-- ////////////////////////////-->
+               <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu">
+               </plugin>
+
+               <!-- ////////////////////////////-->
+               <!-- ////////////////////////////-->
+               <!-- SENSORS PLUGIN -->
+               <!-- ////////////////////////////-->
+               <!-- ////////////////////////////-->
+               <plugin
+                  filename="gz-sim-sensors-system"
+                  name="gz::sim::systems::Sensors">
+                  <render_engine>ogre2</render_engine>
+               </plugin>
+
+
+               <!-- ////////////////////////////-->
+               <!-- ////////////////////////////-->
+               <!-- ODOMETRY PLUGIN -->
+               <!-- ////////////////////////////-->
+               <!-- ////////////////////////////-->
+               <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+                   <odom_frame>odom</odom_frame>
+                   <robot_base_frame>base_link</robot_base_frame>
+                   <odom_publish_frequency>50</odom_publish_frequency>
+                   <odom_topic>/odometry</odom_topic>
+                   <odom_covariance_topic>/odometry_with_covariance</odom_covariance_topic>
+                   <tf_topic>/tf</tf_topic>
+                   <dimensions>2</dimensions>
+               </plugin>
+
+
+               <!-- ////////////////////////////-->
+               <!-- ////////////////////////////-->
+               <!-- JOINT STATE PUBLISHER PLUGIN -->
+               <!-- ////////////////////////////-->
+               <!-- ////////////////////////////-->
+               <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+                   <joint_name>base_footprint_joint</joint_name>
+                   <joint_name>back_right_steering_joint</joint_name>
+                   <joint_name>back_left_steering_joint</joint_name>
+                   <joint_name>front_right_steering_joint</joint_name>
+                   <joint_name>front_left_steering_joint</joint_name>
+                   <joint_name>front_left_wheel_joint</joint_name>
+                   <joint_name>front_right_wheel_joint</joint_name>
+                   <joint_name>back_left_wheel_joint</joint_name>
+                   <joint_name>back_right_wheel_joint</joint_name>
+                   <joint_name>rgbd_joint</joint_name>
+                   <topic>/joint_states</topic>
+               </plugin>
+            </model>
+        </world>
+    </sdf>

@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net" modified="2024-02-19T14:18:25.861Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="GrTdh57aX2qI_O8jZb0N" version="23.1.4" type="device">
+  <diagram name="Страница — 1" id="ndsQUA1Yfo00yevAXA6u">
+    <mxGraphModel dx="1145" dy="659" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-37" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Perception" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="620" width="640" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-11" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;Localization" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="305" width="640" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-2" value="Wheel Odometry" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="320" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-3" value="Imu" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="380" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-4" value="Crop Row Odometry" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="440" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-5" value="Visual Odometry" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="500" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-6" value="Lidar Scan" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="630" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-7" value="Depth Camera Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="690" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-8" value="Color Camera Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="750" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-16" value="Extended Kalman Filter" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="320" width="120" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-17" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endWidth=6.253902185223725;endSize=3.1516129032258062;width=3.225806451612903;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="340" as="sourcePoint" />
+            <mxPoint x="370" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-21" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;linear pose, velocity&lt;br&gt;angular pose, velocity&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="340" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-22" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;nav_msgs/Odometry&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="310" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-28" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endWidth=6.253902185223725;endSize=3.1516129032258062;width=3.225806451612903;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="400" as="sourcePoint" />
+            <mxPoint x="370" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-29" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;linear acceleration&lt;br&gt;angular pose, velocity&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="400" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-30" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;sensor_msgs/Imu&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="370" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-31" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endWidth=6.253902185223725;endSize=3.1516129032258062;width=3.225806451612903;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="460" as="sourcePoint" />
+            <mxPoint x="370" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-32" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;linear velocity&lt;br&gt;angular velocity&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="460" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-33" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;geometry_msgs/Twist&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="430" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-34" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endWidth=6.253902185223725;endSize=3.1516129032258062;width=3.225806451612903;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="520" as="sourcePoint" />
+            <mxPoint x="370" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-35" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;linear velocity&lt;br&gt;angular velocity&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="520" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-36" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;geometry_msgs/Twist&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="490" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Sl_HPWMNO4PvCk57Mm80-38" value="Sonar Scan" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="810" width="120" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

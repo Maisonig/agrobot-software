@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <robot name="robot">
+
+   <!-- ////////////////////////////-->
+   <!-- ////////////////////////////-->
+   <!-- BASE LINK -->
+   <!-- ////////////////////////////-->
+   <!-- ////////////////////////////-->
+    <link name="base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://agro_bot/model/meshes/base_link.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+    </link>
+
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <!-- FRONT LEFT STEERING -->
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <link name="front_left_steering">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://agro_bot/model/meshes/front_left_steering.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+    </link>
+
+    <joint name="front_left_steering_joint" type="revolute">
+      <origin xyz="-1.136 -0.9 -0.040197" rpy="1.5708 0 1.5791" />
+      <parent link="base_link" />
+      <child link="front_left_steering" />
+      <axis xyz="0 1 0" />
+      <limit lower="0" upper="0" effort="2" velocity="0" />
+    </joint>
+
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <!-- FRONT LEFT WHEEL -->
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <link name="front_left_wheel">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://agro_bot/model/meshes/front_left_wheel.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="1 1 1 1" />
+        </material>
+      </visual>
+    </link>
+
+    <joint name="front_left_wheel_joint" type="revolute">
+      <origin xyz="0 -0.315 0" rpy="-1.5708 -1.5381 -1.5708" />
+      <parent link="front_left_steering" />
+      <child link="front_left_wheel" />
+      <axis xyz="0 0 1" />
+      <limit lower="0" upper="0" effort="2" velocity="0" />
+    </joint>
+
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <!-- FRONT RIGHT STEERING -->
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <link name="front_right_steering">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://agro_bot/model/meshes/front_right_steering.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+    </link>
+
+    <joint name="front_right_steering_joint" type="revolute">
+      <origin xyz="-1.1378 0.9 -0.017856" rpy="1.5708 0 -1.5575" />
+      <parent link="base_link" />
+      <child link="front_right_steering" />
+      <axis xyz="0 1 0" />
+      <limit lower="0" upper="0" effort="2" velocity="0" />
+    </joint>
+
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <!-- FRONT RIGHT WHEEL -->
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <link name="front_right_wheel">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://agro_bot/model/meshes/front_right_wheel.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="1 1 1 1" />
+        </material>
+      </visual>
+    </link>
+
+    <joint name="front_right_wheel_joint" type="revolute">
+      <origin xyz="0 -0.315 0" rpy="-1.5708 -1.1689 1.5708" />
+      <parent link="front_right_steering" />
+      <child link="front_right_wheel" />
+      <axis xyz="0 0 1" />
+      <limit lower="0" upper="0" effort="2" velocity="0" />
+    </joint>
+
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <!-- BACK LEFT STEERING -->
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <link name="back_left_steering">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://agro_bot/model/meshes/back_left_steering.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+    </link>
+
+    <joint name="back_left_steering_joint" type="revolute">
+      <origin xyz="1.1377 -0.9 -0.020124" rpy="1.5708 0 1.5679" />
+      <parent link="base_link" />
+      <child link="back_left_steering" />
+      <axis xyz="0 1 0" />
+      <limit lower="0" upper="0" effort="2" velocity="0" />
+    </joint>
+
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <!-- BACK LEFT WHEEL -->
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <link name="back_left_wheel">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://agro_bot/model/meshes/back_left_wheel.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://agro_bot/model/meshes/back_left_wheel.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="back_left_wheel_joint" type="revolute">
+      <origin xyz="0 -0.315 0" rpy="-1.5708 0.93983 -1.5708" />
+      <parent link="back_left_steering" />
+      <child link="back_left_wheel" />
+      <axis xyz="0 0 1" />
+      <limit lower="0" upper="0" effort="2" velocity="0" />
+    </joint>
+
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <!-- BACK RIGHT STEERING -->
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <link name="back_right_steering">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://agro_bot/model/meshes/back_right_steering.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+    </link>
+
+    <joint name="back_right_steering_joint" type="revolute">
+      <origin xyz="1.1377 0.9 -0.020638" rpy="1.5708 0 -1.564" />
+      <parent link="base_link" />
+      <child link="back_right_steering" />
+      <axis xyz="0 1 0" />
+      <limit lower="0" upper="0" effort="2" velocity="0" />
+    </joint>
+
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <!-- BACK RIGHT WHEEL -->
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <link name="back_right_wheel">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://agro_bot/model/meshes/back_right_wheel.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="1 1 1 1" />
+        </material>
+      </visual>
+    </link>
+
+    <joint name="back_right_wheel_joint" type="revolute">
+      <origin xyz="0 -0.315 0" rpy="1.5708 -1.3641 -1.5708" />
+      <parent link="back_right_steering" />
+      <child link="back_right_wheel" />
+      <axis xyz="0 0 1" />
+      <limit lower="0" upper="0" effort="2" velocity="0" />
+    </joint>
+
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <!-- RSLIDAR -->
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <link name="rslidar">
+    </link>
+    <joint name="rslidar_joint" type="fixed">
+      <origin xyz="0 0 0.38" rpy="0 0 0" />
+      <parent link="base_link" />
+      <child link="rslidar" />
+    </joint>
+
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <!-- RGB-D CAMERA -->
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <link name="rgbd">
+    </link>
+    <joint name="rgbd_joint" type="fixed">
+      <origin xyz="0.55 0 0.35" rpy="0 0.758 0" />
+      <parent link="base_link" />
+      <child link="rgbd"/>
+    </joint>
+
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <!-- BASE FOOTPRINT -->
+    <!-- ////////////////////////////-->
+    <!-- ////////////////////////////-->
+    <link name="base_footprint">
+    </link>
+    <joint name="base_footprint_joint" type="fixed">
+      <origin xyz="0 0 -0.57" rpy="0 0 0" />
+      <parent link="base_link" />
+      <child link="base_footprint" />
+    </joint>
+
+  </robot>

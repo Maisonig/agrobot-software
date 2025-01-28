@@ -1,0 +1,7 @@
+image_to_detection:
+  ros__parameters:
+    use_sim_time: False
+    image_topic: /image
+    depth_topic: /depth
+    detection_topic: /detection
+    frequency: 30

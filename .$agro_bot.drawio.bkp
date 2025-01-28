@@ -1,0 +1,346 @@
+<mxfile host="Electron" modified="2024-05-14T07:50:18.345Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="LfIKQZj6903yNYkQbnNG" version="24.4.0" type="device">
+  <diagram name="Страница — 1" id="_76rMfJUV_nXlU8TJN0z">
+    <mxGraphModel dx="2191" dy="2012" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dwqmr7k_n1rv3f7Hunay-6" value="Выбор операции&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="490" y="-360" width="960" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="dwqmr7k_n1rv3f7Hunay-7" value="Движение к заданной точке" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="-330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dwqmr7k_n1rv3f7Hunay-8" value="Построение карты" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="630" y="-330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dwqmr7k_n1rv3f7Hunay-9" value="Отбор проб почвы" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="760" y="-330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dwqmr7k_n1rv3f7Hunay-10" value="..." style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="890" y="-330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dwqmr7k_n1rv3f7Hunay-11" value="Навигация по точкам" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="-230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-1" target="bakdJ32TGXsV-Fi2B60j-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-1" target="bakdJ32TGXsV-Fi2B60j-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-1" value="&lt;div&gt;Камера по направлению движения&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="420" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-3" target="bakdJ32TGXsV-Fi2B60j-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-3" value="Изображение глубины" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="420" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-4" target="bakdJ32TGXsV-Fi2B60j-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-4" value="Цветное изображение" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="490" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-5" value="Карта препятствий" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="360" y="420" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-6" value="Распознавание рядов" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="360" y="490" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-10" value="Локальная сетка занятости" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="520" y="420" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-12" target="bakdJ32TGXsV-Fi2B60j-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-12" value="Глобальные навигационные карты (ПЗУ)" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="140" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.012;entryY=0.235;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-14" target="bakdJ32TGXsV-Fi2B60j-15" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="950" y="165" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-14" value="Сетка занятости поля" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="520" y="140" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Dt2JanxVzmkLGmnMUijw-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-15" target="Dt2JanxVzmkLGmnMUijw-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-15" value="Планирование маршрута в поле" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="840" y="50" width="120" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="bakdJ32TGXsV-Fi2B60j-19" target="bakdJ32TGXsV-Fi2B60j-21" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-19" value="&lt;div&gt;Глобальная навигационная система&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="350" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="bakdJ32TGXsV-Fi2B60j-20" target="bakdJ32TGXsV-Fi2B60j-22" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-20" value="Инерциальная навигационная система" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="280" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-21" value="Данные о положении и ориентации" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="350" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-22" target="bakdJ32TGXsV-Fi2B60j-25" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-22" value="Данные о линейном ускорении и угловой скорости" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="280" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="bakdJ32TGXsV-Fi2B60j-23" target="bakdJ32TGXsV-Fi2B60j-24" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-23" value="Датчики колесной одометрии" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="210" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-24" value="Данные о линейной и угловой скоростях " style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="210" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-25" target="bakdJ32TGXsV-Fi2B60j-14" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="305" />
+              <mxPoint x="500" y="178" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-25" value="Расширенный фильтр Калмана" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="360" y="210" width="120" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.132;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-24" target="bakdJ32TGXsV-Fi2B60j-25" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.002;entryY=0.871;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-21" target="bakdJ32TGXsV-Fi2B60j-25" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.002;entryY=0.208;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-5" target="bakdJ32TGXsV-Fi2B60j-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.009;entryY=0.795;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-6" target="bakdJ32TGXsV-Fi2B60j-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.004;entryY=0.522;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-25" target="bakdJ32TGXsV-Fi2B60j-15" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="819.7600000000002" y="304.73" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="bakdJ32TGXsV-Fi2B60j-48" target="bakdJ32TGXsV-Fi2B60j-49" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-48" value="Выбор операции" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="70" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-49" target="bakdJ32TGXsV-Fi2B60j-14" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="95" />
+              <mxPoint x="500" y="153" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-49" value="Выбор участка для обработки" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="70" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.01;entryY=0.091;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-49" target="bakdJ32TGXsV-Fi2B60j-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-52" value="Выбор пункта/пунктов назначения" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="640" y="70" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-53" value="Одометрия" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="770" y="280" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-54" value="Карта глобального окружения" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="670" y="140" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-55" value="Карта локального окружения" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="670" y="456" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.002;entryY=0.879;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-10" target="bakdJ32TGXsV-Fi2B60j-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-58" target="bakdJ32TGXsV-Fi2B60j-59" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-58" target="bakdJ32TGXsV-Fi2B60j-60" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="170" y="1110" />
+              <mxPoint x="170" y="1180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-58" value="camera_driver" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1080" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-59" value="image_to_detection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="320" y="1080" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-60" value="cloud_to_scan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="320" y="1160" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-61" value="local_mapping" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="600" y="1080" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-63" value="osm_mapping" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="320" y="1000" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-69" value="gnss_driver" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="40" y="920" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-70" target="bakdJ32TGXsV-Fi2B60j-72" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-70" value="imu_driver" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="40" y="840" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-71" value="wheel_driver" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="40" y="760" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="bakdJ32TGXsV-Fi2B60j-72" value="ekf_node" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="320" y="760" width="120" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-2" value="sensor_msg.Image" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="170" y="1070" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-5" value="sensor_msg.PointCloud2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="170" y="1150" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-8" value="geometry_msg.Polygon" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="450" y="1070" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-9" value="sensor_msg.LaserScan" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="450" y="1150" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.003;entryY=0.163;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-59" target="bakdJ32TGXsV-Fi2B60j-61" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.835;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-60" target="bakdJ32TGXsV-Fi2B60j-61" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-71" target="bakdJ32TGXsV-Fi2B60j-72" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.9;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-69" target="bakdJ32TGXsV-Fi2B60j-72" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-22" value="sensor_msg.NavSat" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="170" y="910" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-23" value="sensor_msg.Imu" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="170" y="830" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-24" value="nav_msg.Odometry" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="170" y="750" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-27" value="user_interface" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="40" y="600" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-32" value="cutom_srv.Interface" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="180" y="610" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.018;entryY=0.099;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="CRqypewJ-rsK672ApSqn-27" target="CRqypewJ-rsK672ApSqn-28" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.433;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-72" target="CRqypewJ-rsK672ApSqn-28" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.9;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="bakdJ32TGXsV-Fi2B60j-61" target="CRqypewJ-rsK672ApSqn-28" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Dt2JanxVzmkLGmnMUijw-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="CRqypewJ-rsK672ApSqn-28" target="Dt2JanxVzmkLGmnMUijw-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-28" value="path_planning" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="880" y="600" width="120" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-37" value="nav_msg.Odometry" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="440" y="835" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-39" value="nav_msg.OccupancyGrid" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="726" y="1115" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-40" value="nav_msg.OccupancyGrid" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-140" y="690" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-41" value="sensor_msg.Image" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-140" y="660" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CRqypewJ-rsK672ApSqn-42" value="sensor_msg.PointCloud2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-140" y="630" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Dt2JanxVzmkLGmnMUijw-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="Dt2JanxVzmkLGmnMUijw-4" target="Dt2JanxVzmkLGmnMUijw-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Dt2JanxVzmkLGmnMUijw-4" value="Планирование движения" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1000" y="50" width="120" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="Dt2JanxVzmkLGmnMUijw-5" value="motion_planning" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1050" y="600" width="120" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="Dt2JanxVzmkLGmnMUijw-8" value="Воздействия на приводные системы" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="50" width="120" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="ODTeC20Sf6mb84Yi3kVX-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="bakdJ32TGXsV-Fi2B60j-63" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="880" y="1020" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ldg3OIHw-7znllsPQ7CW-1" value="geometry_msg.Polygon" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="450" y="980" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Ldg3OIHw-7znllsPQ7CW-2" value="Получение собственных глобальных&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;координат&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70" y="1400" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ldg3OIHw-7znllsPQ7CW-3" value="Получение глобальных&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;координат полигона поля&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="260" y="1400" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ldg3OIHw-7znllsPQ7CW-4" value="Получение локальных координат полигона поля" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="450" y="1400" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ldg3OIHw-7znllsPQ7CW-5" value="Построение линий движения робота по полю, линий предполагаемых соседних рядков. Класс имеющий две точки, начала и конца линии" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1020" y="1390" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ldg3OIHw-7znllsPQ7CW-6" value="Наложение линии рядка культур на карту" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="640" y="1400" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ldg3OIHw-7znllsPQ7CW-7" value="Наложение точек препятствий на карту" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="830" y="1400" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Ldg3OIHw-7znllsPQ7CW-8" value="Алгоритм планирования пути по линии, линии междурядья имеют наименьший вес, линии рядов повыше, препятствия бесконечно большой" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1400" y="1390" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ldg3OIHw-7znllsPQ7CW-9" value="Подбор текущей линии для движения, стартовая координата начало линии, конечная - конец" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1210" y="1390" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Ldg3OIHw-7znllsPQ7CW-10" value="coord_transform" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="600" y="760" width="120" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="HpDR1XIG4QYIhoaoxVqM-1" value="Платформа перед рядами" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-120" y="1520" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HpDR1XIG4QYIhoaoxVqM-2" value="Начинается движение платформы вдоль ряда по прямой" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="1520" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HpDR1XIG4QYIhoaoxVqM-3" value="Когда ряд пропадает на длительное время и координаты выходят за пределы поля&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="1520" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HpDR1XIG4QYIhoaoxVqM-4" value="Робот определяет направление для смены линии ряда на свою ширину" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="1520" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HpDR1XIG4QYIhoaoxVqM-5" value="Начинается движение платформы вдоль ряда по прямой" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="1600" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HpDR1XIG4QYIhoaoxVqM-6" value="Когда ряды распознаны и робот внутри поля по координатам" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="1520" width="180" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

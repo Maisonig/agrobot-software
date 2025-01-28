@@ -1,0 +1,17 @@
+local_mapping:
+  ros__parameters:
+    frequency: 30
+    front_detection_topic: /agro_bot/front_camera/detection
+    back_detection_topic: /agro_bot/back_camera/detection
+    front_depth_topic: /agro_bot/front_camera/image/depth
+    back_depth_topic: /agro_bot/back_camera/image/depth
+    front_scan_topic: /agro_bot/front_camera/scan
+    back_scan_topic: /agro_bot/back_camera/scan
+    odom_topic: /agro_bot/odom
+    grid_topic: /agro_bot/local_map
+    grid_frame: odom
+    robot_frame: base_footprint
+    front_camera_frame: front_camera_link
+    back_camera_frame: back_camera_link
+    grid_size: 30
+    grid_resolution: 0.1
