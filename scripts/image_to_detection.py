@@ -146,13 +146,13 @@ class ImageToDetection(Node):
           черно-белом бинарном изображении путем отсеивания контуров с малой площадью;
         * построения графа по обнаруженным точкам;
         * обнаружения самых первых двух точек центральных линий рядков слева и справа с последующим поиском пути
-          алгоритмом Дейкстры к близжайшим точкам впереди, то есть поиска всех растений на линии одного ряда;
+          алгоритмом Дейкстры к ближайшим точкам впереди, то есть поиска всех растений на линии одного ряда;
         * аппроксимации двух обнаруженных линий рядов в плавные кривые второго порядка.
 
     Основные параметры класса для среды ROS2:
         * субскрайбер на топик входного изображения цвета;
         * паблишер топика полигона (массива точек) распознанных линий;
-            ! В одном полигоне содержится информация о точках двух распознанных линий. Они разделены точкой со
+            ! В одном полигоне содержится информация о точках двух распознанных линий. Они разделены точкой с
             координатами NAN.
         * таймер для выполнения обработки изображений и отправки полигонов.
 
@@ -165,17 +165,9 @@ class ImageToDetection(Node):
     def __init__(self, node_name: str):
         super().__init__(node_name)
 
-        self.declare_parameter('image_topic', rclpy.Parameter.Type.STRING)
-        self.declare_parameter('detection_topic', rclpy.Parameter.Type.STRING)
-        self.declare_parameter('frequency', rclpy.Parameter.Type.INTEGER)
-
-        params = [
-            rclpy.Parameter('image_topic', rclpy.Parameter.Type.STRING, '/agro_bot/front_camera/image/color'),
-            rclpy.Parameter('detection_topic', rclpy.Parameter.Type.STRING, '/agro_bot/front_camera/detection'),
-            rclpy.Parameter('frequency', rclpy.Parameter.Type.INTEGER, 30),
-        ]
-
-        # self.set_parameters(params)
+        self.declare_parameter('image_topic', '/agro_bot/front_camera/image/color')
+        self.declare_parameter('detection_topic', '/agro_bot/front_camera/detection')
+        self.declare_parameter('frequency', 30)
 
         image_topic = self.get_parameter('image_topic').get_parameter_value().string_value
         poly_topic = self.get_parameter('detection_topic').get_parameter_value().string_value
@@ -219,9 +211,6 @@ class ImageToDetection(Node):
                             self.polyData.append(Point32(x=float(u), y=float(v), z=0.))
                             # image = cv2.circle(image, [int(u), int(v)], 5, (255, 255, 255), -1)
                         self.polyData.append(Point32(x=np.nan, y=np.nan, z=np.nan))
-
-        # cv2.imshow('image', image)
-        # cv2.waitKey(1)
 
     def timer_callback(self):
         try:

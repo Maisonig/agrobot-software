@@ -1,4 +1,4 @@
 launch:
   ros__parameters:
-    rviz_model_name: agro_bot_v1.3.urdf.xml
-    gz_model_name: agro_bot_v1.3.sdf.xml
+    rviz_model_name: agro_bot_v3.2.urdf.xml
+    gz_model_name: agro_bot_v3.2.sdf.xml

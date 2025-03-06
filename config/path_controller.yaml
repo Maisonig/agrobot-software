@@ -1,0 +1,20 @@
+path_controller:
+  ros__parameters:
+    use_sim_time: true
+    frequency: 30
+
+    # In this section, the topics that the node subscribes to get odometry and a path
+    path_topic: /path
+    odom_topic: /odom
+
+    # The topic to publish goal velocities 'Twist'
+    cmd_topic: /cmd_vel
+
+    # Average linear and angular velocities
+    average_linear_speed: 0.4
+    average_angular_speed: 0.3
+
+    # The node uses a service 'GetParameters' from which it gets the ROS2 <path_state> and <finder_type> parameter.
+    # If <path_state> value is True, then the controller publishes Twist in the <cmd_topic> topic.
+    # <finder_type> defines type of controller. Available: astar, hybrid_astar (no reverse), omni_hybrid_astar (still in development)
+    path_state_service_node: path_mapping

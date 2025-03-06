@@ -38,13 +38,7 @@ def generate_launch_description():
         output='screen'
     )
 
-    action_gz_controller = Node(
-        package='agro_bot',
-        executable='controller.py'
-    )
-
     ld = LaunchDescription()
     ld.add_action(action_gz_sim)
     ld.add_action(action_bridge)
-    ld.add_action(action_gz_controller)
     return ld

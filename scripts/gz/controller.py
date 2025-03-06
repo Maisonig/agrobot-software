@@ -29,22 +29,34 @@ class GzController(Node):
                                          '/agro_bot/cmd_vel/steering/front_left_steering',
                                          qos_profile)
         self.brs = self.create_publisher(Float64,
-                                         '/agro_bot/cmd_vel/steering/back_right_steering',
+                                         '/agro_bot/cmd_vel/steering/rear_right_steering',
                                          qos_profile)
         self.bls = self.create_publisher(Float64,
-                                         '/agro_bot/cmd_vel/steering/back_left_steering',
+                                         '/agro_bot/cmd_vel/steering/rear_left_steering',
                                          qos_profile)
-        self.frw = self.create_publisher(Float64,
-                                         '/agro_bot/cmd_vel/wheel/front_right_wheel',
+        self.fllw = self.create_publisher(Float64,
+                                         '/agro_bot/cmd_vel/wheel/front_left_left_wheel',
                                          qos_profile)
-        self.flw = self.create_publisher(Float64,
-                                         '/agro_bot/cmd_vel/wheel/front_left_wheel',
+        self.flrw = self.create_publisher(Float64,
+                                         '/agro_bot/cmd_vel/wheel/front_left_right_wheel',
                                          qos_profile)
-        self.brw = self.create_publisher(Float64,
-                                         '/agro_bot/cmd_vel/wheel/back_right_wheel',
+        self.frlw = self.create_publisher(Float64,
+                                         '/agro_bot/cmd_vel/wheel/front_right_left_wheel',
                                          qos_profile)
-        self.blw = self.create_publisher(Float64,
-                                         '/agro_bot/cmd_vel/wheel/back_left_wheel',
+        self.frrw = self.create_publisher(Float64,
+                                         '/agro_bot/cmd_vel/wheel/front_right_right_wheel',
+                                         qos_profile)
+        self.rllw = self.create_publisher(Float64,
+                                         '/agro_bot/cmd_vel/wheel/rear_left_left_wheel',
+                                         qos_profile)
+        self.rlrw = self.create_publisher(Float64,
+                                         '/agro_bot/cmd_vel/wheel/rear_left_right_wheel',
+                                         qos_profile)
+        self.rrlw = self.create_publisher(Float64,
+                                         '/agro_bot/cmd_vel/wheel/rear_right_left_wheel',
+                                         qos_profile)
+        self.rrrw = self.create_publisher(Float64,
+                                         '/agro_bot/cmd_vel/wheel/rear_right_right_wheel',
                                          qos_profile)
 
         self.mainTimer = self.create_timer(0.066, self.timer_callback)
@@ -55,20 +67,20 @@ class GzController(Node):
         steering = Float64()
         steering.data = self.cmdVelMsg.angular.z
 
-        if steering.data >= 1.:
-            steering.data = 1.
-        elif steering.data <= -1.:
-            steering.data = -1.
-        if speed.data >= 1.:
-            speed.data = 1.
-        elif speed.data <= -1.:
-            speed.data = -1.
+        if steering.data >= 6.28:
+            steering.data = 6.28
+        elif steering.data <= -6.28:
+            steering.data = -6.28
+        if speed.data >= 3.:
+            speed.data = 3.
+        elif speed.data <= -3.:
+            speed.data = -3.
 
         speed.data = speed.data / WHEEL_RADIUS
 
         for st in [self.frs, self.fls, self.brs, self.bls]:
             st.publish(steering)
-        for sp in [self.frw, self.flw, self.brw, self.blw]:
+        for sp in [self.fllw, self.flrw, self.frlw, self.frrw, self.rllw, self.rlrw, self.rrlw, self.rrrw]:
             sp.publish(speed)
 
     def cmd_vel_callback(self, msg):

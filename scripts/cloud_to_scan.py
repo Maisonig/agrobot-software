@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
 
+import time
 import array
 import rclpy
 import numpy as np
 import ros2_numpy as rnp
 
 from rclpy.node import Node
+from utils import decart_to_polar
 from sensor_msgs.msg import PointCloud2, LaserScan
-
-
-def decart_to_polar(x, y):
-    return np.sqrt(x ** 2 + y ** 2), np.arctan2(y, x)
 
 
 class CloudToScan(Node):
@@ -28,7 +26,6 @@ class CloudToScan(Node):
         * таймер для выполнения обработки.
 
     Основные параметры ROS2:
-        !! Без указания значений параметров при запуске ноды, она будет разрушаться.
         * pointcloud_topic - название топика облака точек;
         * scan_topic - название топика лазерного сканирования;
         * x_max - максимальная координата региона интереса в облаке точек по оси х;
@@ -37,7 +34,7 @@ class CloudToScan(Node):
         * y_min - минимальная координата региона интереса в облаке точек по оси у;
         * z_max - максимальная координата региона интереса в облаке точек по оси z;
         * z_min - минимальная координата региона интереса в облаке точек по оси z;
-        * angle_max - верхний диагазон углов лазерного сканирования;
+        * angle_max - верхний диапазон углов лазерного сканирования;
         * angle_min - нижний диапазон углов лазерного сканирования;
         * rays_number - число лучей (углов) лазерного сканирования;
         * frame_id - название звена лазера для привязки;
@@ -47,37 +44,19 @@ class CloudToScan(Node):
     def __init__(self, node_name: str):
         super().__init__(node_name)
 
-        self.declare_parameter('pointcloud_topic', rclpy.Parameter.Type.STRING)
-        self.declare_parameter('scan_topic', rclpy.Parameter.Type.STRING)
-        self.declare_parameter('frequency', rclpy.Parameter.Type.INTEGER)
-        self.declare_parameter('x_max', rclpy.Parameter.Type.DOUBLE)
-        self.declare_parameter('x_min', rclpy.Parameter.Type.DOUBLE)
-        self.declare_parameter('y_max', rclpy.Parameter.Type.DOUBLE)
-        self.declare_parameter('y_min', rclpy.Parameter.Type.DOUBLE)
-        self.declare_parameter('z_max', rclpy.Parameter.Type.DOUBLE)
-        self.declare_parameter('z_min', rclpy.Parameter.Type.DOUBLE)
-        self.declare_parameter('angle_max', rclpy.Parameter.Type.DOUBLE)
-        self.declare_parameter('angle_min', rclpy.Parameter.Type.DOUBLE)
-        self.declare_parameter('rays_number', rclpy.Parameter.Type.INTEGER)
-        self.declare_parameter('frame_id', rclpy.Parameter.Type.STRING)
-
-        params = [
-            rclpy.Parameter('pointcloud_topic', rclpy.Parameter.Type.STRING, '/agro_bot/back_camera/points'),
-            rclpy.Parameter('scan_topic', rclpy.Parameter.Type.STRING, '/scan'),
-            rclpy.Parameter('frequency', rclpy.Parameter.Type.INTEGER, 30),
-            rclpy.Parameter('x_max', rclpy.Parameter.Type.DOUBLE, 10.),
-            rclpy.Parameter('x_min', rclpy.Parameter.Type.DOUBLE, 0.6),
-            rclpy.Parameter('y_max', rclpy.Parameter.Type.DOUBLE, 20.),
-            rclpy.Parameter('y_min', rclpy.Parameter.Type.DOUBLE, -20.),
-            rclpy.Parameter('z_max', rclpy.Parameter.Type.DOUBLE, 0.2),
-            rclpy.Parameter('z_min', rclpy.Parameter.Type.DOUBLE, 0.0),
-            rclpy.Parameter('angle_max', rclpy.Parameter.Type.DOUBLE, 0.33),
-            rclpy.Parameter('angle_min', rclpy.Parameter.Type.DOUBLE, -0.33),
-            rclpy.Parameter('rays_number', rclpy.Parameter.Type.INTEGER, 60),
-            rclpy.Parameter('frame_id', rclpy.Parameter.Type.STRING, 'back_camera_link'),
-        ]
-
-        # self.set_parameters(params)
+        self.declare_parameter('pointcloud_topic', '/front_camera/points')
+        self.declare_parameter('scan_topic', '/front_camera/scan')
+        self.declare_parameter('frequency', 30)
+        self.declare_parameter('x_max', 20.0)
+        self.declare_parameter('x_min', 0.7)
+        self.declare_parameter('y_max', 100.)
+        self.declare_parameter('y_min', -100.)
+        self.declare_parameter('z_max', 0.0)
+        self.declare_parameter('z_min', -0.3)
+        self.declare_parameter('angle_max', 0.7)
+        self.declare_parameter('angle_min', -0.7)
+        self.declare_parameter('rays_number', 300)
+        self.declare_parameter('frame_id', 'front_camera_link')
 
         self.xMax = self.get_parameter('x_max').get_parameter_value().double_value
         self.xMin = self.get_parameter('x_min').get_parameter_value().double_value
@@ -118,41 +97,53 @@ class CloudToScan(Node):
         self.pcData = msg
 
     def pointcloud_to_scan(self):
-        try:
-            data = rnp.numpify(self.pcData)
-            data = np.array(data['xyz'], dtype=np.float32)
-            condition = data[:, 2] < self.zMax
-            data = data[condition]
-            condition = data[:, 2] > self.zMin
-            data = data[condition]
-            condition = data[:, 0] < self.xMax
-            data = data[condition]
-            condition = data[:, 0] > self.xMin
-            data = data[condition]
-            for x, y, z in data:
-                rad, a = decart_to_polar(x, y)
+        t1 = time.time()
+        data = rnp.numpify(self.pcData)
+        data = np.array(data['xyz'], dtype=np.float32)
+        condition = data[:, 2] < self.zMax
+        data = data[condition]
+        condition = data[:, 2] > self.zMin
+        data = data[condition]
+        condition = data[:, 1] < self.yMax
+        data = data[condition]
+        condition = data[:, 1] > self.yMin
+        data = data[condition]
+        condition = data[:, 0] < self.xMax
+        data = data[condition]
+        condition = data[:, 0] > self.xMin
+        data = data[condition]
+        for x, y, z in data:
+            rad, a = decart_to_polar(x, y)
+            try:
                 i = np.where(self.scanData[:, 0] > a)[0][0]
                 if self.scanData[i, 1] == 0:
                     self.scanData[i, 1] = rad
-        except (ValueError, IndexError):
-            pass
+            except IndexError:
+                pass
+        print(1 / time.time())
 
     def timer_callback(self):
-        # start_time = time.time()
-        self.pointcloud_to_scan()
-        msg = LaserScan()
-        msg.header.stamp = self.get_clock().now().to_msg()
-        msg.header.frame_id = self.frameId
-        msg.angle_min = self.angleMin
-        msg.angle_max = self.angleMax
-        msg.angle_increment = self.angleIncrement
-        msg.range_min = self.xMin
-        msg.range_max = self.xMax
-        msg.ranges = array.array('f', list(self.scanData[:, 1]))
-        self.scanPub.publish(msg)
+        if self.pcData != PointCloud2():
+            self.pointcloud_to_scan()
+            msg = LaserScan()
+            msg.header.stamp = self.get_clock().now().to_msg()
+            msg.header.frame_id = self.frameId
+            msg.angle_min = self.angleMin
+            msg.angle_max = self.angleMax
+            msg.angle_increment = self.angleIncrement
+            msg.range_min = self.xMin
+            msg.range_max = self.xMax
+            msg.ranges = array.array('f', list(self.scanData[:, 1]))
+            self.scanPub.publish(msg)
+            self.scanData[:, 1] = 0
 
-        self.scanData[:, 1] = 0
-        # print(1.0 / (time.time() - start_time))
+    def control_message(self, msg):
+        if self.get_clock().now().to_msg().sec - 3 > msg.header.stamp.sec:
+            self.get_logger().warn(f"Dropping the message {type(msg).__name__} because the data is too old."
+                                   f" The last message has a stamp {msg.header.stamp.sec}.")
+            time.sleep(1)
+        else:
+            return True
 
 
 def main():

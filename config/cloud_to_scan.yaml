@@ -1,18 +1,18 @@
 cloud_to_scan:
   ros__parameters:
     use_sim_time: False
+    frequency: 30
     frame_id: laser_link
     pointcloud_topic: /points
     scan_topic: /scan
-    frequency: 30
-    x_max: 10.
-    x_min: .6
-    y_max: 20.
-    y_min: -20.
-    z_max: .25
-    z_min: .2
-    angle_max: 1.52
-    angle_min: -1.52
-    rays_number: 60
+    x_max: 10.0 # top boundary of the points on the X-axis, meters
+    x_min: 0.6 # bottom boundary of the points on the X-axis, meters
+    y_max: 20.0 # top boundary of the points on the Y-axis, meters
+    y_min: -20.0 # bottom boundary of the points on the Y-axis, meters
+    z_max: 0.25 # top boundary of the points on the Z-axis, meters
+    z_min: 0.2 # bottom boundary of the points on the Z-axis, meters
+    angle_max: 1.52 # top boundary of the scan, radians, meters
+    angle_min: -1.52 # bottom boundary of the scan, radians
+    rays_number: 60 # number of rays of the scan
 
 

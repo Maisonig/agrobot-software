@@ -38,14 +38,14 @@ class KeyboardController(Node):
         except AttributeError:
             print('special key {0} pressed'.format(
                 key))
-        if self.speed >= 1.:
-            self.speed = 1.
-        if self.speed <= -1.:
-            self.speed = -1.
-        if self.steering >= 1.:
-            self.steering = 1.
-        if self.steering <= -1:
-            self.steering = -1.
+        if self.speed >= 3.:
+            self.speed = 3.
+        if self.speed <= -3.:
+            self.speed = -3.
+        if self.steering >= 6.28:
+            self.steering = 6.28
+        if self.steering <= -6.28:
+            self.steering = -6.28
         msg = Twist()
         msg.linear.x = self.speed
         msg.angular.z = self.steering

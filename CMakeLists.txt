@@ -17,22 +17,32 @@ find_package(rclcpp REQUIRED)
 find_package(rclpy REQUIRED)
 
 find_package(sensor_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(rcl_interfaces REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+set(dependencies
+  rclcpp
+  std_msgs
+  sensor_msgs
+  geometry_msgs
+  rcl_interfaces
+)
+
 include_directories(include)
 
-
+add_executable(sim_movement_controller src/sim_movement_controller.cpp)
 # add_executable(imu src/imu.cpp)
-# ament_target_dependencies(imu rclcpp sensor_msgs std_msgs)
+ament_target_dependencies(sim_movement_controller rclcpp sensor_msgs std_msgs geometry_msgs)
 
-# install(TARGETS
-#  imu
-#  DESTINATION lib/${PROJECT_NAME}
-# )
+install(TARGETS
+ sim_movement_controller
+ DESTINATION lib/${PROJECT_NAME}
+)
 
 # Install Python modules
 ament_python_install_package(${PROJECT_NAME})
@@ -43,7 +53,13 @@ install(PROGRAMS
   scripts/camera_driver.py
   scripts/cloud_to_scan.py
   scripts/image_to_detection.py
-  scripts/local_mapping.py
+  scripts/utils.py
+  scripts/path_mapping.py
+  scripts/astar.py
+  scripts/hybrid_astar.py
+  scripts/poly.py
+  scripts/path_controller.py
+  scripts/waypoint_follower.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

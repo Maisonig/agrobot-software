@@ -1,0 +1,8 @@
+waypoint_follower:
+  ros__parameters:
+    frequency: 30
+    goal_topic: /goal_pose
+    map_frame: map
+    goal_radius: 3.0 # the radius around the point at which the point will be considered reached
+    waypoints: [0., 0., 3.14, -12., 0., 0., -12., 4, 0., 0., -4, 0., 0., 0., 3.14] # waipoints which represents points of the route, x, y, theta
+    start_following: False # if true, the points start going to the topic. Start following only after starting and initializing all nodes
