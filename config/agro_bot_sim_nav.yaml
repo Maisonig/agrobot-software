@@ -1,0 +1,152 @@
+front_cloud_to_scan:
+  ros__parameters:
+    use_sim_time: true
+    frequency: 30
+    frame_id: front_camera_link
+    pointcloud_topic: /front_camera/points
+    scan_topic: /front_camera/scan/scan
+    x_max: 32.0 # top boundary of the points on the X-axis, meters
+    x_min: 1.2 # bottom boundary of the points on the X-axis, meters
+    y_max: 20.0 # top boundary of the points on the Y-axis, meters
+    y_min: -20.0 # bottom boundary of the points on the Y-axis, meters
+    z_max: 0.5 # top boundary of the points on the Z-axis, meters
+    z_min: -0.3 # bottom boundary of the points on the Z-axis, meters
+    angle_max: 0.52 # top boundary of the scan, radians, meters
+    angle_min: -0.52 # bottom boundary of the scan, radians
+    rays_number: 60 # number of rays of the scan
+
+rear_cloud_to_scan:
+  ros__parameters:
+    use_sim_time: true
+    frequency: 30
+    frame_id: rear_camera_link
+    pointcloud_topic: /rear_camera/points
+    scan_topic: /rear_camera/scan/scan
+    x_max: 32.0 # top boundary of the points on the X-axis, meters
+    x_min: 1.2 # bottom boundary of the points on the X-axis, meters
+    y_max: 20.0 # top boundary of the points on the Y-axis, meters
+    y_min: -20.0 # bottom boundary of the points on the Y-axis, meters
+    z_max: 0.5 # top boundary of the points on the Z-axis, meters
+    z_min: -0.3 # bottom boundary of the points on the Z-axis, meters
+    angle_max: 0.52 # top boundary of the scan, radians, meters
+    angle_min: -0.52 # bottom boundary of the scan, radians
+    rays_number: 60 # number of rays of the scan
+
+left_cloud_to_scan:
+  ros__parameters:
+    use_sim_time: true
+    frequency: 30
+    frame_id: left_camera_link
+    pointcloud_topic: /left_camera/points
+    scan_topic: /left_camera/scan/scan
+    x_max: 32.0 # top boundary of the points on the X-axis, meters
+    x_min: 1.2 # bottom boundary of the points on the X-axis, meters
+    y_max: 20.0 # top boundary of the points on the Y-axis, meters
+    y_min: -20.0 # bottom boundary of the points on the Y-axis, meters
+    z_max: 0.5 # top boundary of the points on the Z-axis, meters
+    z_min: -0.3 # bottom boundary of the points on the Z-axis, meters
+    angle_max: 0.52 # top boundary of the scan, radians, meters
+    angle_min: -0.52 # bottom boundary of the scan, radians
+    rays_number: 60 # number of rays of the scan
+
+right_cloud_to_scan:
+  ros__parameters:
+    use_sim_time: true
+    frequency: 30
+    frame_id: right_camera_link
+    pointcloud_topic: /right_camera/points
+    scan_topic: /right_camera/scan/scan
+    x_max: 32.0 # top boundary of the points on the X-axis, meters
+    x_min: 1.2 # bottom boundary of the points on the X-axis, meters
+    y_max: 20.0 # top boundary of the points on the Y-axis, meters
+    y_min: -20.0 # bottom boundary of the points on the Y-axis, meters
+    z_max: 0.5 # top boundary of the points on the Z-axis, meters
+    z_min: -0.3 # bottom boundary of the points on the Z-axis, meters
+    angle_max: 0.52 # top boundary of the scan, radians, meters
+    angle_min: -0.52 # bottom boundary of the scan, radians
+    rays_number: 60 # number of rays of the scan
+
+path_mapping:
+  ros__parameters:
+    use_sim_time: true
+    frequency: 30
+
+    # In this section, the topics that the node subscribes to receive lidar data
+    front_scan_topic: /front_camera/scan/scan
+    rear_scan_topic: /rear_camera/scan/scan
+    left_scan_topic: /left_camera/scan/scan
+    right_scan_topic: /right_camera/scan/scan
+
+    # In this section, the topics that the node subscribes to receive environmental recognition data
+    detections_topic: /detections
+
+    # This section defines the parameters of the lidar location relative to the robot in the format [x, y, theta], meters, radians
+    front_scan_position: [0.3, 0.0, 0.0]
+    rear_scan_position: [-0.3, 0.0, 3.14]
+    left_scan_position: [0.0, 0.3, 1.57]
+    right_scan_position: [0.0, -0.3, -1.57]
+
+    # In this section, the topics to publish node messages such as:
+    # - "OccupancyGrid" message for a global environment map with the dimensions specified in the <global_map_size> parameter;
+    # - "OccupancyGrid" message for the local environment map located around the robot, with the dimensions specified in the <local_map_size> parameter;
+    # - "Path" message of the robot's route.
+    global_map_topic: /map
+    local_map_topic: /local_map
+    path_topic: /path
+
+    # In this section, the topics that the node subscribes to get odometry and a goal destination
+    odom_topic: /odometry/filtered
+    goal_topic: /goal_pose
+
+    # In this section, the names of the frames are assigned:
+    # - <map_frame> to bind the global environment map
+    # - <odom_frame> for linking with a global map frame
+    # - <path_base_frame> the frame relative to which the route will be calculated, usually starting from the zero point of the robot's start, that is, <map_frame>
+    map_frame: map
+    odom_frame: odom
+    path_base_frame: map
+
+    # This section describes the parameters of the environment maps. The resolution for both maps is the same.
+    global_map_size: 200  # The size of the global environment map, meters
+    local_map_size: 32  # Size of the local environment map, meters
+    map_infiltration_radius: 2.5  # A parameter that defines the dangerous approach zones around each obstacle, meters
+    map_resolution: 0.1  # By default, the value 1.0 is equal to a map with a resolution of 1 meter. Accordingly, 0.1 is a map with a resolution of 1 decimeter.
+    publish_global_map: false # If false, the map will be published 1 time at the start, if true, the map will be published with a frequency <frequency>
+
+    # This section describes the parameters of the route planner to the goal destination
+    finder_type: astar  # Type of path planner (astar, hybrid_astar, omni_hybrid_astar (still in development)), description of the planners on the GitHub repository page
+    path_collision_radius: 2.5  # Simplified collision avoidance model, the parameter defines the radius of the circumscription circle around the robot, meters
+    goal_radius: 0.5  # The radius of the circle that will be considered the area of reaching the goal point must be 2 or more times larger than <path_discrete>, otherwise there may be problems with building a path, meters
+    path_discrete: 0.4  # The discreteness value of the path, the minimum value of the distance between two points of the constructed path, meters
+    steering_value: 0.3  # Maximum steering angle for the hybrid_astar planner, radians
+    timeout: 1.0 # The maximum time to build a path, if the planner does not have time, the path will not be published
+
+path_controller:
+  ros__parameters:
+    use_sim_time: true
+    frequency: 30
+
+    # In this section, the topics that the node subscribes to get odometry and a path
+    path_topic: /path
+    odom_topic: /odom
+
+    # The topic to publish goal velocities 'Twist'
+    cmd_topic: /cmd_vel
+
+    # Average linear and angular velocities
+    average_linear_speed: 0.4
+    average_angular_speed: 0.3
+
+    # The node uses a service 'GetParameters' from which it gets the ROS2 <path_state> and <finder_type> parameter.
+    # If <path_state> value is True, then the controller publishes Twist in the <cmd_topic> topic.
+    # <finder_type> defines type of controller. Available: astar, hybrid_astar (no reverse), omni_hybrid_astar (still in development)
+    path_state_service_node: path_mapping
+
+waypoint_follower:
+  ros__parameters:
+    use_sim_time: true
+    frequency: 30
+    goal_topic: /goal_pose
+    map_frame: map
+    waypoints: [0., 0., 0., -12., 0., 0., -12., 2.5, 0., 0., 2.5, 0., 0., 0., 0.] # waypoints which represents points of the route, x, y, theta
+    start_following: False # if true, the points start going to the topic. Start following only after starting and initializing all nodes
