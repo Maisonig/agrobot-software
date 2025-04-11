@@ -14,41 +14,50 @@ class KeyboardController(Node):
 
         qos_profile = QoSProfile(depth=10)
         self.pub = self.create_publisher(Twist,
-                                         'cmd_vel',
+                                         '/cmd_vel',
                                          qos_profile)
 
-        self.speed = 0.
-        self.steering = 0.
+        self.x_, self.y_, self.z_ = 0., 0., 0.
 
         with keyboard.Listener(on_press=self.on_press_callback) as self.listener:
             self.listener.join()
 
     def on_press_callback(self, key):
         try:
-            if key == keyboard.Key.up:
-                self.speed += 0.1
-            if key == keyboard.Key.down:
-                self.speed += -0.1
-            if key == keyboard.Key.left:
-                self.steering += 0.1
-            if key == keyboard.Key.right:
-                self.steering += -0.1
-            print('alphanumeric key {0} pressed'.format(
-                key.char))
+            if key.char == '8':
+                self.x_ += 0.05
+            if key.char == '2':
+                self.x_ -= 0.05
+            if key.char == '4':
+                self.y_ += 0.05
+            if key.char == '6':
+                self.y_ -= 0.05
+            if key.char == '9':
+                self.z_ += 0.05
+            if key.char == '7':
+                self.z_ -= 0.05
+            if key.char == '0':
+                self.x_, self.y_, self.z_ = 0., 0., 0.
         except AttributeError:
-            print('special key {0} pressed'.format(
-                key))
-        if self.speed >= 3.:
-            self.speed = 3.
-        if self.speed <= -3.:
-            self.speed = -3.
-        if self.steering >= 6.28:
-            self.steering = 6.28
-        if self.steering <= -6.28:
-            self.steering = -6.28
+            pass
+
+        if self.x_ >= 1.:
+            self.x_ = 1.
+        if self.x_ <= -1.:
+            self.x_ = -1.
+        if self.y_ >= 1.:
+            self.y_ = 1.
+        if self.y_ <= -1.:
+            self.y_ = -1.
+        if self.z_ >= 1.:
+            self.z_ = 1.
+        if self.z_ <= -1.:
+            self.z_ = -1.
+
         msg = Twist()
-        msg.linear.x = self.speed
-        msg.angular.z = self.steering
+        msg.linear.x = self.x_
+        msg.linear.y = self.y_
+        msg.angular.z = self.z_
         self.pub.publish(msg)
 
 

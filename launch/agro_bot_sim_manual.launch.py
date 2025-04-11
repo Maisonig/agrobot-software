@@ -20,7 +20,8 @@ def generate_launch_description():
 
     action_keyboard_controller = Node(
         package='agro_bot',
-        executable='keyboard_controller.py'
+        executable='keyboard_controller.py',
+        name='keyboard_controller'
     )
 
     action_movement_controller = Node(

@@ -9,8 +9,7 @@ from nav_msgs.msg import Path, Odometry
 from rcl_interfaces.srv import GetParameters
 from geometry_msgs.msg import Twist, PoseStamped, Pose
 
-from utils import polar_to_decart, rotate_point
-from utils import decart_to_polar, euler_from_quaternion
+from util.utils import decart_to_polar, euler_from_quaternion
 
 
 class PathController(Node):
@@ -153,7 +152,22 @@ class PathController(Node):
 
             x_ = x_ * k
             y_ = y_ * k
-            z_ = 0.
+
+            path_angle = euler_from_quaternion(path[0].pose.orientation.z,
+                                               path[0].pose.orientation.y,
+                                               path[0].pose.orientation.w,
+                                               path[0].pose.orientation.x)[2]
+            if path_angle < 0:
+                path_angle += 6.28
+            if robot_angle < 0:
+                robot_angle += 6.28
+            delta_angle = path_angle - robot_angle
+            ranged = delta_angle - int(delta_angle / math.pi) * 2 * math.pi
+            if ranged != 0:
+                # z_ = self.averageAngularSpeed * ranged / abs(ranged) * 0.1
+                z_ = 0.
+            else:
+                z_ = 0.
         else:
             path_angle = euler_from_quaternion(path[0].pose.orientation.z,
                                                path[0].pose.orientation.y,

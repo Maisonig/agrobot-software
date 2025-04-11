@@ -53,14 +53,18 @@ install(PROGRAMS
   scripts/camera_driver.py
   scripts/cloud_to_scan.py
   scripts/image_to_detection.py
-  scripts/utils.py
   scripts/path_mapping.py
-  scripts/astar.py
-  scripts/hybrid_astar.py
-  scripts/poly.py
   scripts/path_controller.py
   scripts/waypoint_follower.py
   DESTINATION lib/${PROJECT_NAME}
+)
+
+install(PROGRAMS
+  scripts/util/utils.py
+  scripts/util/astar.py
+  scripts/util/hybrid_astar.py
+  scripts/util/parallel.py
+  DESTINATION lib/${PROJECT_NAME}/util
 )
 
 # Install launch files.

@@ -2,11 +2,12 @@
 import time
 import rclpy
 
+from shapely import Point, Polygon
 from geometry_msgs.msg import PoseStamped
 from rcl_interfaces.srv import GetParameters
 from rclpy.node import Node
-from utils import quaternion_from_euler
-from poly import generate_row_coverage_path
+from util.parallel import find_start_cords, find_parallel_trajectory
+from util.utils import quaternion_from_euler
 from nav_msgs.msg import Path
 
 
@@ -55,22 +56,36 @@ class WaypointFollower(Node):
 
         self.pubFlg = False
 
+        # Пример полигона (задается в метрах)
         polygon_coords = [
-            (0, 0),
+            (0, -1.5),
             (-13, 0),
-            (-13, 5),
-            (0, 5),
+            (-13, 25),
+            (0, 25),
         ]
-        sprayer_width = 1.65
-        start_point = (0, 0)  # Точка старта вне полигона
-        end_point = (0, 0)
 
-        self.route = generate_row_coverage_path(polygon_coords, sprayer_width, start_point, end_point)
+        # Текущее положение техники
+
+        polygon = Polygon(polygon_coords)
+        current_position = Point(0, 0)
+        lines_angle = 3.14
+        lines_width = 3
+
+        if not polygon.is_valid:
+            print("Некорректный полигон.")
+            exit()
+
+        offset_x, offset_y, offset_th, parallel_dir = find_start_cords(polygon, current_position, lines_angle,
+                                                                       lines_width)
+        self.traj = find_parallel_trajectory(polygon, offset_x, offset_y, offset_th, parallel_dir, lines_width)
+
+
         msg = Path()
         msg.header.stamp = self.get_clock().now().to_msg()
         msg.header.frame_id = self.mapFrame
         self.waypoints = []
-        for p in self.route:
+        self.traj = self.traj.coords
+        for p in self.traj:
             ps = PoseStamped()
             ps.header.frame_id = self.mapFrame
             ps.header.stamp = self.get_clock().now().to_msg()

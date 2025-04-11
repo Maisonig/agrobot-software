@@ -68,7 +68,7 @@ def generate_launch_description():
 
     action_movement_control = Node(
         package='agro_bot',
-        executable='movement_controller',
+        executable='sim_movement_controller',
         name='controller',
     )
 
